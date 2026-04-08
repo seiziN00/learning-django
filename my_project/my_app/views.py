@@ -1,0 +1,6 @@
+#from django.shortcuts import render
+from django.http import HttpResponse
+
+
+def home(request):
+    return HttpResponse("<h1>Hello Django!</h1><p>From localhost:8000</p>")
