@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: #09f;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+footer {
+  background-color: #09f;
+  color: #ccc;
+  padding: 4rem;
+  text-align: center;
+}

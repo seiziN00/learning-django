@@ -1,48 +1,33 @@
-Only Django.
-This repository is a journey of my Django projects.
+I read the Django design philosophy in [documentation](https://docs.djangoproject.com/es/6.0/misc/design-philosophies/)
 
-### Tools
+# Views
+- views.py: here are all the views (like Controller from MVC model)
+- use the `render()` buil-in function to render a template.
+- `render()` has a request (HttpRequest), template_name (string) and context (dict).
+- `render()` returns a HttpResponse object.
 
-- Git
-- uv
-- Obsidian
-- Anki
-- ChatGPT-5.3
-- Gemini 3 Flash
-- Qwen3.6-Plus
-- NotebookLM
+# Django Template Language (DTL)
+use {{}} to display variables
+use {% %} to execute statements
 
-# 60 minutes
+# Django Templates
 
-Django Documentation Content → [Documentation](https://docs.djangoproject.com/en/6.0/contents/#:~:text=app)
+Make a template and use {% block %}{% endblock %} to create blocks.
+Also create a layout folder and put a base.html file in it. Then use {% extends "./layout/base.html" %} to extend the base.html file.
 
-1. I read this post in the official documentation → [FAQ: General](https://docs.djangoproject.com/en/6.0/faq/general/), oh, there is a audio of the pronuntiation: [audio](https://www.red-bean.com/~adrian/django_pronunciation.mp3)
-2. Architecture and structure of a Django project
-   - Model View template: View is like a Controller. Template is the HTML that is displayed.
-3. To create a Django project, run this command:
-   ```bash
-   django-admin startproject my_project
-   ```
-4. To create a Django app, run this command:
-   ```bash
-   python manage.py startapp my_app
-   ```
-5. Define a function in the `views.py` to return a HttpResponse and show the message "Hello Django!" in the browser.
-6. Make a `urls.py` file and add the url to the `views.py` file.
-7. To make a url in the root url, just add the url in the `urls.py` file in the root directory of the project.
-   ```python
-   // from django.url import include
-   urlpatterns = [
-       path('', include('my_app.urls')),
-   ]
-   ```
-8. To run the Django project, run this command:
-   ```bash
-   python manage.py runserver
-   ```
+# Common folders
+- templates/
+  - layout/
+  - partial/
+- static/
+  - css/
+  - images/
 
-# Next steps
-
-- [ ] Read the Django's cache framework [documentation](https://docs.djangoproject.com/en/6.0/topics/cache/)
-- [ ] Read the Django's design philosophies [documentation](https://docs.djangoproject.com/en/6.0/misc/design-philosophies/)
-- [ ]
+# Django built-in templates and filters
+- length
+- date
+- upper
+- block
+- url
+- now 'l, d F Y'
+- there is a lot more in [documentation](https://docs.djangoproject.com/en/6.0/ref/templates/builtins/)

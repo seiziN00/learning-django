@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href={% static 'style.css' %} />
+    {% block styles %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{% url "home" %}">home</a></li>
+        <li><a href="{% url "greetings" %}">greetings</a></li>
+        <li><a href="{% url "today" %}">today</a></li>
+      </ul>
+    </nav>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    <footer>
+      <p>All rights are not reserved</p>
+    </footer>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>
