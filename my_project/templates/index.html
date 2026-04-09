@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index Page</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: whitesmoke;
+        padding: 1rem;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      li {
+        margin-bottom: 12px;
+      }
+      a {
+        text-decoration: none;
+        color: #555;
+        padding-bottom: 4px;
+        position: relative;
+      }
+      a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: cyan;
+        transition: width 0.3s ease;
+      }
+      a:hover {
+        color: #111;
+      }
+      a:hover::after {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This is the root page</h1>
+    <p>Visit other pages:</p>
+    <ul>
+      <li><a href="greetings/">greetings</a></li>
+      <li><a href="goodbye/">goodbye</a></li>
+      <li><a href="howareyou">howAreYou?</a></li>
+      <li><a href="simple/">simple</a></li>
+      <!-- <li><a href="person/">person</a></li> -->
+    </ul>
+  </body>
+</html>
