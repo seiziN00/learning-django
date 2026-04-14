@@ -1,0 +1,17 @@
+{% extends "./layout/base.html" %}
+
+{% block title %}Blog{% endblock title %}
+
+{% block content %}
+<h1>Welcome to my blog section</h1>
+
+<div>
+  {% for number in numbers %}
+
+  <img src="https://picsum.photos/id/{{ number }}/200/300
+" alt="img-{{ number }}" width="200">
+
+  {% endfor %}
+
+</div>
+{% endblock content %}

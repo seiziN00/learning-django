@@ -1,33 +1,14 @@
-I read the Django design philosophy in [documentation](https://docs.djangoproject.com/es/6.0/misc/design-philosophies/)
+### Django Projects
 
-# Views
-- views.py: here are all the views (like Controller from MVC model)
-- use the `render()` buil-in function to render a template.
-- `render()` has a request (HttpRequest), template_name (string) and context (dict).
-- `render()` returns a HttpResponse object.
+There a lot of Django repos in GitHub, most of them doesnt' have a single `settings.py` file. Instead, they have a `settings` folder with multiple files, each one for a different environment.
 
-# Django Template Language (DTL)
-use {{}} to display variables
-use {% %} to execute statements
+There are some Django projects that combines Django templates + Bootstrap + Celery and Elasticsearch and jQuery.
 
-# Django Templates
+The modern approach is Tailwind CSS, PostgreSQL, Redis, Celery (although Django Tasks is interesting). For the frontend side, React and Vue are the most popular.
 
-Make a template and use {% block %}{% endblock %} to create blocks.
-Also create a layout folder and put a base.html file in it. Then use {% extends "./layout/base.html" %} to extend the base.html file.
+# This time
+- I create a new project named **blog_1**.
+- It has a single app named **blog**.
+- It uses a dinamic urls from [Lorem Picsum](https://picsum.photos/) with a **for tag**
 
-# Common folders
-- templates/
-  - layout/
-  - partial/
-- static/
-  - css/
-  - images/
-
-# Django built-in templates and filters
-- length
-- date
-- upper
-- block
-- url
-- now 'l, d F Y'
-- there is a lot more in [documentation](https://docs.djangoproject.com/en/6.0/ref/templates/builtins/)
+That's all...

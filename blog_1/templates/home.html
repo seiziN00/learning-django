@@ -1,0 +1,12 @@
+{% extends "./layout/base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content%}
+<h1>Welcome to my web page</h1>
+<p>My name is Dante and I'm a photographer. <br>If you want to see any of my photos, please go to my <a
+    href="{% url 'blog' %}">blog</a> section</p>
+<img
+  src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2024/02/how-to-become-a-good-photographer-105.jpg?resize=600%2C400&ssl=1"
+  alt="photographer">
+{% endblock %}
