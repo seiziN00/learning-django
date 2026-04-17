@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "../layout/base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+{% block title %}Queries{% endblock %}
 
-<body>
-  <p>Offsets from 5 to 10:</p>
-  <ul>
-    {% for elem in offsets %}
-    <li>{{ elem.name }} | <span style="color: blue;">{{ elem.email }}</span></li>
-    {% endfor %}
-  </ul>
-
-  <p>This is the author with id = 1: {{ author }}</p>
-
-  <h3>
-    The author where its email is janegonzalez@example.org
-  </h3>
-  <ul>
-    {% for elem in filtered %}
-    <li>{{ elem.name }} | {{ elem.email }}</li>
-    {% endfor %}
-  </ul>
-
-  <h3>All the authors</h3>
-  <ul>
-    {% for author in authors %}
-    <li>{{ author.name }} <span style="color: blue;">({{ author.email }})</span></li>
-    {% endfor %}
-  </ul>
-  <h3>
-    Total de autores: {{ authors|length }}
-  </h3>
-</body>
-
-</html>
+{% block content %}
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Email</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for author in authors %}
+        <tr>     
+          <td>{{ author.name }}</td>
+          <td>{{ author.email }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total authors: {{ authors|length }}</td>
+      </tr>
+    </tfoot>
+  </table>
+{% endblock  %}
