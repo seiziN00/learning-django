@@ -3,25 +3,49 @@
 {% block title %}Queries{% endblock %}
 
 {% block content %}
-  <table>
-    <thead>
-      <tr>
-        <td>Name</td>
-        <td>Email</td>
-      </tr>
-    </thead>
-    <tbody>
-      {% for author in authors %}
-        <tr>     
-          <td>{{ author.name }}</td>
-          <td>{{ author.email }}</td>
-        </tr>
-      {% endfor %}
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="2">Total authors: {{ authors|length }}</td>
-      </tr>
-    </tfoot>
-  </table>
-{% endblock  %}
+<div class="buttons-container">
+  <button id="all-data">View all data</button>
+  <button id="yes-names">View only names with 'phone'</button>
+</div>
+<table id="author-name-email">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for author in authors %}
+    <tr>
+      <td>{{ author.name }}</td>
+      <td>{{ author.email }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2">Total authors: {{ authors|length }}</td>
+    </tr>
+  </tfoot>
+</table>
+
+<table id="author-yes">
+  <thead>
+    <tr>
+      <td>Name</td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for w in word %}
+    <tr>
+      <td>{{ w.name }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total authors: {{ word|length }}</td>
+    </tr>
+  </tfoot>
+</table>
+{% endblock %}
