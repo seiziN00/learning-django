@@ -1,46 +1,14 @@
-To order data use `objects.all().order_by('data')`
+## Relations in Django
 
-To make custom filters use double underscore `__` between field and filter name. For example, to filter by date greater than `2020-01-01` use `objects.all().filter(data__gt='2020-01-01')`
+``OneToOneField`` is likely a ``ForeignKey``, but It's used to stores aditional information like a biography or a profile picture for a user. Instead modify the table of users.
 
-#### Most common lookups:
-- `__gt` - greater than
-- `__gte` - greater than or equal
-- `__lt` - less than
-- `__lte` - less than or equal
-- `__exact` - exact match
-- `__iexact` - exact match case insensitive
-- `__contains` - contains
-- `__icontains` - contains case insensitive
-- `__startswith` - starts with
-- `__istartswith` - starts with case insensitive
-- `__endswith` - ends with
-- `__iendswith` - ends with case insensitive
-- `__in` - in list
-- `__range` - in range
-- `__isnull` - is null
-- `__regex` - regex match
-- `__iregex` - regex match case insensitive
-- `__year` - specific year
+So, if you can extend a user, do inheritance multi-table, use ``OneToOneField``.
 
+To make a many to one relationship, use ``ForeignKey`` and the `_set`.
 
-By default Django uses `AND` operator. To use `OR` operator use `Q` objects. For example:
+To make a many to many relationship, use ``ManyToManyField``.
+It creates an intermediate table to store the relations.
+Use the `add()` method to add a new relation.
+Use the `remove()` method to remove a relation.
 
-```python
-from django.db.models import Q
-
-Products.objects.filter(
-    Q(name__icontains="laptop") | Q(price__lt=10)
-)
-```
-
-There's a complete lookups in the [documentation](https://docs.djangoproject.com/en/6.0/topics/db/queries/#field-lookups)
-
----
-
-To update data just reasign the field and save the object. For example:
-
-```python
-product = Products.objects.get(id=1)
-product.name = "New name"
-product.save()
-```
+There's more information in the [documentation](https://docs.djangoproject.com/en/6.0/topics/db/examples/)
