@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # local apps
     'onetoone',
     'manytoone',
+    'manytomany',
 ]
 
 MIDDLEWARE = [
