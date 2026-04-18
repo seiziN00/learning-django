@@ -1,14 +1,22 @@
-## Relations in Django
+### PostgreSQL connection
 
-``OneToOneField`` is likely a ``ForeignKey``, but It's used to stores aditional information like a biography or a profile picture for a user. Instead modify the table of users.
+You must have installed PostgreSQL and created a database.
+Then, change the sqlite engine in settings to postgresql engine.
 
-So, if you can extend a user, do inheritance multi-table, use ``OneToOneField``.
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': 'mydatabaseuser',
+        'PASSWORD': 'mypassword',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+```
 
-To make a many to one relationship, use ``ForeignKey`` and the `_set`.
+Execute: `python manage.py migrate`
+Look at the database and see the tables.
 
-To make a many to many relationship, use ``ManyToManyField``.
-It creates an intermediate table to store the relations.
-Use the `add()` method to add a new relation.
-Use the `remove()` method to remove a relation.
-
-There's more information in the [documentation](https://docs.djangoproject.com/en/6.0/topics/db/examples/)
+> Obviously you must have created a ``.env`` file with the database credentials. But in this case isn't important.
