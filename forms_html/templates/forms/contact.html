@@ -1,7 +1,30 @@
-<form action="{% url 'goal' %}" method="GET">
-  <label for="name">Name:</label>
-  <input id="name" type="text" placeholder="name" name='name'>
-  <label for="comment">Comment:</label>
-  <input id="comment" type="text" placeholder="comment" name="message">
-  <input type="submit" value="Send">
+<form id="myForm" action="{% url 'goal' %}" method="GET"
+  class="space-y-4 max-w-md mx-auto p-6 bg-white rounded-xl shadow-md">
+  {% csrf_token %}
+  <div class="grid grid-cols-2 grid-rows-2 gap-2 items-center">
+    <p class="text-indigo-900 font-semibold col-span-2">Change the HTTP method</p>
+    <button id="getButton" type="button"
+      class="px-2 py-1 rounded-md bg-orange-400 hover:bg-orange-500 transition cursor-pointer">GET</button>
+    <button id="postButton" type="button"
+      class="px-2 py-1 rounded-md bg-green-400 hover:bg-green-500 transition cursor-pointer">POST</button>
+  </div>
+  <div>
+    <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+    <input id="name" type="text" placeholder="Your name please" name='name' required
+      class="mt-1 p-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+  </div>
+  <div id="comment_container">
+    <label for="comment" class="block text-sm font-medium text-gray-700">Comment:</label>
+    <input id="comment" type="text" placeholder="Any comment? is optional..." name="message"
+      class="mt-1 p-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+  </div>
+  <div id="quantity_container">
+    <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity:</label>
+    <input id="quantity" type="number" placeholder="Enter quantity" name="quantity" min="1"
+      class="mt-1 p-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+  </div>
+  <button type="submit"
+    class="mt-1 w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition cursor-pointer">
+    Enviar
+  </button>
 </form>

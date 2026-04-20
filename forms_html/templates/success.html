@@ -5,11 +5,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Success Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+
+    p {
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007BFF;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 
 <body>
-  <p>Your name is: {{ name }}</p>
-  <p>Your comment is: {{ message }}</p>
+  {% if name %}
+  <p><span>Your name is:</span> {{ name }}</p>
+  {% endif %}
+
+  {% if message %}
+  <p><span>Your message is:</span> {{ message }}</p>
+  {% endif %}
+
+  {% if quantity %}
+  <p><span>Your quantity is:</span> {{ quantity }}</p>
+  {% endif %}
+
+  <a href="{% url 'form' %}">Go back to the form</a>
 </body>
 
 </html>

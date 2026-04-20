@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +9,11 @@
   <title>Forms with HTML</title>
 </head>
 
-<body>
-  <h1>This a form using only HTML</h1>
+<body class="bg-gray-100">
+  <h1 class="p-2 mt-1 font-sans font-bold text-sm text-gray-500">Using HTML and Tailwind CSS</h1>
+
   {% include 'forms/contact.html' %}
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>
