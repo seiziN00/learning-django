@@ -1,21 +1,45 @@
-### Forms in Django
+## Django Forms
 
-Hay dos formas de usar los formularios, con HTML o con Django Forms.
-
-La primera forma es simplemente usar HTML puro, entonces creas una carpeta templates con una archivo HTML que contenga un form que luego importas en la vista y renderizas.
-
-En el mejor de los casos para que el código y la estructura del proyecto sea lo más limpia posible, se recomienda crear una carpeta **forms** para los formularios, así solo se usa un `{% include 'forms/contact.html' %}`.
-
-Para validar los datos, se usa una comparación con métodos HTTP, por ejemplo para comparar si no es GET:
-
+Para trabajar con Django Forms se suele crear un archivo `forms.py`.
+En este archivo se definen las clases que heredan de `forms.Form`.
+El nombre de la clase suele ser el nombre del modelo + la palabra `Form`.
 
 ```python
-if request.method != 'GET':
-    # Validar datos
+from django import forms
+
+class CommentForm(forms.Form):
+  pass
 ```
 
-Para obtener el valor:
+Es muy parecido a los modelos de Django.
+Algunas formas básicas:
+
+- ``CharField``
+- p
+- ``URLField``
+- ``EmailField``
+- ``IntegerField``
+- ``FloatField``
+- ``BooleanField``
+- ``DateField``
+- ``TimeField``
+- ``DateTimeField``
+- ``ChoiceField``
+- ``MultipleChoiceField``
+- ``FileField``
+- ``ImageField``
+
+Muchos contienen parámetros como ``max_length``, ``min_length``, ``required``, ``widget``, ``label``, ``initial``.
+
+Para más información, revisar la [documentación](https://docs.djangoproject.com/en/6.0/topics/forms/#building-a-form-in-django)
+
+Para mostrar el formulario en el template, se puede usar el tag `{{ form }}` o `{{ form.as_p }}` o `{{ form.as_table }}` o `{{ form.as_ul }}`.
+Obviamente se le debe pasar el formulario como **contexto** en la vista.
+
+#### Para actualizar la información de un formulario
+
+Algo interesante, es que se puede actualizar la información de un formulario con un diccionario instanciando el formulario.
 
 ```python
-name = request.GET['name']
+comment_form = CommentForm({'name': 'Sirius', 'web_page': 'https://www.google.com', 'comment': 'Hola desde Django'})
 ```

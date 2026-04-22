@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goal Page</title>
+</head>
+
+<body>
+
+  <p>Datos enviados:</p>
+  <ul>
+    {% if name %}
+    <li><strong>Nombre:</strong> {{ name }}</li>
+    {% endif %}
+    {% if web_page %}
+    <li><strong>Página web:</strong> {{ web_page }}</li>
+    {% endif %}
+    {% if comment %}
+    <li><strong>Comentario:</strong> {{ comment }}</li>
+    {% endif %}
+  </ul>
+
+</body>
+
+</html>

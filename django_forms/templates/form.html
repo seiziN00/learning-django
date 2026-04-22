@@ -9,6 +9,15 @@
 
 <body>
   <h1>Esto es un form</h1>
+  <hr>
+  
+  <table>
+  <form action="{% url 'goal' %}" method='post'>
+    {% csrf_token %}
+    {{ comment_form.as_table }}
+    <input type="submit" value="Enviar">
+  </form>
+  </table>
 </body>
 
 </html>
